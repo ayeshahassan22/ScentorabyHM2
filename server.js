@@ -6,8 +6,7 @@ const mysql = require("mysql2"); const db = mysql.createPool(process.env.DATABAS
  db.getConnection((err, connection) => { if (err) { console.log("MySQL connection failed:",
      err.message); } else { console.log("MySQL connected successfully!"); connection.release(); } });
 
-  const express = 
-require("express");
+  const express = require("express");
 
 const path = require("path");
 
