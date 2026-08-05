@@ -37,7 +37,8 @@ app.get("/test", (req, res) => { res.send("Server is working"); });
         db.query(sql, [name, phone, city, address, product,quantity ],
          (err, result) =>
          { if (err) { 
-           console.error(err);
+           console.error("FULL ERROR:",
+           JSON.stringify(err,null,2));
              return 
                res.status(500).json(err); 
             } console.log("Order saved:", result.insertId); res.json({ success: true, message: "Order received successfully" }); 
