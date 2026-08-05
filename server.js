@@ -29,8 +29,11 @@ app.get("/test", (req, res) => { res.send("Server is working"); });
   
     
      // Receive order
-      app.post("/order", (req, res) => { const { name, phone, address, product } = req.body; const sql = 
-      "INSERT INTO orders (name, phone, address, product) VALUES (?, ?, ?, ?)"; db.query(sql, [name, phone, address, product],
+
+      app.post("/order", (req, res) => {
+        console.log("Request Body:",req.body);
+        const { name, phone,city, address, product } = req.body; const sql = 
+      "INSERT INTO orders (name, phone,city, address, product) VALUES (?, ?, ?, ?)"; db.query(sql, [name, phone, city, address, product],
          (err, result) =>
          { if (err) { console.error("Order save failed:", err);
              return res.status(500).json({ success: false, message: "Order save nahi ho saka" }); 
