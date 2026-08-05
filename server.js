@@ -35,8 +35,10 @@ app.get("/test", (req, res) => { res.send("Server is working"); });
         const { name, phone,city, address, product } = req.body; const sql = 
       "INSERT INTO orders (name, phone,city, address, product) VALUES (?, ?, ?, ?)"; db.query(sql, [name, phone, city, address, product],
          (err, result) =>
-         { if (err) { console.error("Order save failed:", err);
-             return res.status(500).json({ success: false, message: "Order save nahi ho saka" }); 
+         { if (err) { 
+           console.error(err);
+             return 
+               res.status(500).json(err); 
             } console.log("Order saved:", result.insertId); res.json({ success: true, message: "Order received successfully" }); 
         }); });
        
