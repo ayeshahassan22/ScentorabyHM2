@@ -20,14 +20,13 @@ const path = require("path");
   app.use(express.urlencoded({ extended: true })); 
   
   // Website files
-
+ app.use(express.static(__dirname,)); 
+    
   app.get("/", (req, res) => { res.sendFile(path.join(__dirname,  "index.html")); });
 app.get("/test", (req, res) => { res.send("Server is working"); });
 
 
-   app.use(express.static(__dirname,
-     )); 
-    
+  
     
      // Receive order
       app.post("/order", (req, res) => { const { name, phone, address, product } = req.body; const sql = 
