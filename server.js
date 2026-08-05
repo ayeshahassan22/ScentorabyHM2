@@ -33,7 +33,8 @@ app.get("/test", (req, res) => { res.send("Server is working"); });
       app.post("/order", (req, res) => {
         console.log("Request Body:",req.body);
         const { name, phone,city, address, product } = req.body; const sql = 
-      "INSERT INTO orders (name, phone,city, address, product) VALUES (?, ?, ?, ?)"; db.query(sql, [name, phone, city, address, product],
+      "INSERT INTO orders (name, phone,city, address, product) VALUES (?, ?, ?, ?)"; 
+        db.query(sql, [name, phone, city, address, product],
          (err, result) =>
          { if (err) { 
            console.error(err);
